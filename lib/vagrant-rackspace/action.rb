@@ -42,6 +42,8 @@ module VagrantPlugins
               next
             end
 
+            b2.use PreProvisionScript
+
             b2.use Provision
             if defined?(SyncedFolders)
               b2.use SyncedFolders
@@ -112,6 +114,7 @@ module VagrantPlugins
             end
 
             b2.use ConnectRackspace
+            b2.use PreProvisionScript
             b2.use Provision
             if defined?(SyncedFolders)
               b2.use SyncedFolders
@@ -181,6 +184,7 @@ module VagrantPlugins
       autoload :ListKeyPairs, action_root.join("list_keypairs")
       autoload :ListNetworks, action_root.join("list_networks")
       autoload :ListServers, action_root.join("list_servers")
+      autoload :PreProvisionScript, action_root.join("pre_provision_script.rb")
     end
   end
 end
