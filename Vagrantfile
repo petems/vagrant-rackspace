@@ -19,6 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     rs.flavor   = /1 GB Performance/
     rs.image    = /Ubuntu/
     rs.rackspace_region = :iad
+    rs.pre_provision_script = './resources/hello_world.sh'
 
     # rs.rsync_include 'PATTERN'  # per man page for rsync
   end
