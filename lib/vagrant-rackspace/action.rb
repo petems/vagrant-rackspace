@@ -42,7 +42,7 @@ module VagrantPlugins
               next
             end
 
-            b2.use PreProvisionScript
+            b2.use PreProvisionScript if env[:machine].provider_config.pre_provision_script != nil
 
             b2.use Provision
             if defined?(SyncedFolders)
@@ -114,7 +114,7 @@ module VagrantPlugins
             end
 
             b2.use ConnectRackspace
-            b2.use PreProvisionScript
+            b2.use PreProvisionScript if env[:machine].provider_config.pre_provision_script != nil
             b2.use Provision
             if defined?(SyncedFolders)
               b2.use SyncedFolders
